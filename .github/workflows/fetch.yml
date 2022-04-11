@@ -9,17 +9,20 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Fetch
         run: |
           curl -o images/goes-16-latest.jpg https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/latest.jpg
           curl -o images/goes-17-latest.jpg https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/latest.jpg
 
-      - uses: jruipinto/ImageMagick-action@v1
+      - name: Resize
+        uses: jruipinto/ImageMagick-action@v1
         with:
-          # ImageMagick command to be executed
-          command: mogrify -path images/ -resize 1920x1080 images/*.jpg
+          command: mogrify -resize 1920x1080 images/*.jpg
 
-      - uses: actions/checkout@v2
+      - name: Commit
         run: |
           git add images
           git commit -m "update images"
