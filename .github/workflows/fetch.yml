@@ -3,7 +3,7 @@ name: fetch
 on:
   push:
   schedule:
-    - cron: '0 * * * *' # every hour https://crontab.guru/#0_*_*_*_*
+    - cron: '0 0,6,12,18 * * *' # https://crontab.guru/#0_0,6,12,18_*_*_*
 
 jobs:
   fetch:
