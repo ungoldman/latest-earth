@@ -1,7 +1,9 @@
 name: fetch
 
 on:
-  push:
+  # allows manually running a workflow
+  # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
+  workflow_dispatch:
   schedule:
     - cron: '0 0,6,12,18 * * *' # https://crontab.guru/#0_0,6,12,18_*_*_*
 
@@ -29,3 +31,11 @@ jobs:
           git add images
           git commit -m "update images"
           git push origin $(git rev-parse --abbrev-ref HEAD)
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          exclude_assets: '.github,README.md'
