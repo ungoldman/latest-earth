@@ -1,0 +1,7 @@
+const fs = require('fs')
+const file = fs.readFileSync('./index.html', { encoding: 'utf8' })
+const d = (new Date()).toISOString()
+let [ date, time ] = d.split('T')
+time = time.slice(0,5)
+const result = file.replace(/<date>.*\<\/date>/g, `<date>${date} @ ${time} UTC</date>`)
+fs.writeFileSync('./index.html', result)
