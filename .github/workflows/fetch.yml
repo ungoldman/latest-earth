@@ -26,7 +26,7 @@ jobs:
 
       - name: Update Timestamp
         run: |
-          sed -I '' -e "s/<date>.*\<\/date>/<date>$(date +"%F at %H:%M %Z")<\/date>/g" index.html
+          sed -i'' -e "s/<date>.*\<\/date>/<date>$(date +"%F at %H:%M %Z")<\/date>/g" index.html
 
       - name: Commit
         run: |
