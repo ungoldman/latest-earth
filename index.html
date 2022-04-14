@@ -13,17 +13,10 @@
       background: #000;
       color: #fff;
     }
-    main {
-      position: absolute;
-      top: 56px;
-      right: 0;
-      bottom: 0;
-      left: 0;
+    body {
       display: flex;
       flex-direction: column;
-      max-width: unset;
-      min-height: calc(100vh - 56px);
-      margin: 0;
+      min-height: 100vh;
     }
     .last-updated {
       color: #999;
@@ -62,16 +55,14 @@
       <a class="top-bar-link" title="source code" href="https://github.com/ungoldman/satellites">🐈</a>
     </div>
   </nav>
-  <main>
-    <p class="last-updated">
-      Latest images of Earth from <a href="https://www.goes-r.gov/mission/history.html">GOES</a> 17 (West) & 16 (East).<br>
-      Last updated: <date>2022-04-14 @ 20:07 UTC</date>.<br>
-      Updates every 4 hours.
-    </p>
-    <div class="sats">
-      <img title="GOES-17 Full Disk GeoColor" src="./images/goes-17-latest.jpg">
-      <img title="GOES-16 Full Disk GeoColor" src="./images/goes-16-latest.jpg">
-    </div>
-  </main>
+  <p class="last-updated">
+    Latest images of Earth from <a href="https://www.goes-r.gov/mission/history.html">GOES</a> 17 (West) & 16 (East).<br>
+    Last updated: <date>2022-04-14 @ 20:07 UTC</date>.<br>
+    Updates every 4 hours.
+  </p>
+  <div class="sats">
+    <img title="GOES-17 Full Disk GeoColor" src="./images/goes-17-latest.jpg">
+    <img title="GOES-16 Full Disk GeoColor" src="./images/goes-16-latest.jpg">
+  </div>
 </body>
 </html>
