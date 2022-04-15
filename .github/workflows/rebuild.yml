@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fetch:
+  rebuild:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
