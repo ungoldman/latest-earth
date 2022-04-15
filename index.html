@@ -92,12 +92,15 @@
 
   <script src="https://unpkg.com/dayjs@1.11.1/dayjs.min.js"></script>
   <script src="https://unpkg.com/dayjs@1.11.1/plugin/relativeTime.js"></script>
+  <script src="https://unpkg.com/dayjs@1.11.1/plugin/localizedFormat.js"></script>
   <script>
     dayjs.extend(dayjs_plugin_relativeTime)
+    dayjs.extend(dayjs_plugin_localizedFormat)
     const $d = document.querySelector('date')
     const datetime = $d.getAttribute('datetime')
     const ago = dayjs(datetime).fromNow()
-    $d.setAttribute('datetime', ago)
+    const title = dayjs(datetime).format('dddd, MMMM D, YYYY h:mm A')
+    $d.setAttribute('title', title)
     $d.textContent = ago
   </script>
 </body>
