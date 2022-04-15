@@ -12,6 +12,9 @@ Pulling latest images of Earth from geostationary satellites [every 4 hours](htt
 
   <img src="./images/goes-17-latest.jpg" width="50%">
 
-- [ ] Himawari-8
+- [x] Himawari-8
+
+    <img src="./images/himawari-8-latest.jpg" width="50%">
+
 - [ ] Meteosat
 - [ ] Meteosat Indian Ocean
