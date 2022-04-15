@@ -18,22 +18,41 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    .last-updated {
-      color: #999;
-      font-size: 12px;
-      text-align: center;
+    .top-bar {
+      position: sticky;
+      z-index: 1;
     }
-    .last-updated date {
-      color: #ddd;
+    .top-bar + .sats {
+      margin-top: -57px;
     }
     .sats {
+      position: relative;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
       flex-grow: 1;
+      padding: 3rem 0;
     }
     .sats img {
       width: 40%;
+    }
+    .sats .sat {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #999;
+      font-size: 14px;
+    }
+    .colophon {
+      color: #999;
+      font-size: 13px;
+      text-align: center;
+      margin: 10vh auto 4rem;
+    }
+    .colophon date {
+      color: #ddd;
     }
     @media screen and (max-width: 800px) {
       .sats { flex-direction: column }
@@ -55,14 +74,31 @@
       <a class="top-bar-link" title="source code" href="https://github.com/ungoldman/latest-earth">🐈</a>
     </div>
   </nav>
-  <p class="last-updated">
-    Latest images of Earth from <a href="https://www.goes-r.gov/mission/history.html">GOES</a> 17 (West) & 16 (East).<br>
-    Last updated: <date>2022-04-15 @ 08:06 UTC</date>.<br>
+
+  <div class="sats">
+    <img title="GOES-17" src="./images/goes-17-latest.jpg">
+    <img title="GOES-16" src="./images/goes-16-latest.jpg">
+    <div class="sat"><a href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G17">GOES-17</a> and <a href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G16">GOES-16</a></div>
+  </div>
+  <div class="sats">
+    <img title="Himawari 8" src="./images/himawari-8-latest.jpg">
+    <div class="sat"><a href="https://himawari8.nict.go.jp/">Himawari 8</a></div>
+  </div>
+
+  <p class="colophon">
+    Last updated <date datetime="2022-04-15T08:15:58.656Z">2022-04-15T08:15:58.656Z</date>.
     Updates every 4 hours.
   </p>
-  <div class="sats">
-    <img title="GOES-17 Full Disk GeoColor" src="./images/goes-17-latest.jpg">
-    <img title="GOES-16 Full Disk GeoColor" src="./images/goes-16-latest.jpg">
-  </div>
+
+  <script src="https://unpkg.com/dayjs@1.11.1/dayjs.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.11.1/plugin/relativeTime.js"></script>
+  <script>
+    dayjs.extend(dayjs_plugin_relativeTime)
+    const $d = document.querySelector('date')
+    const datetime = $d.getAttribute('datetime')
+    const ago = dayjs(datetime).fromNow()
+    $d.setAttribute('datetime', ago)
+    $d.textContent = ago
+  </script>
 </body>
 </html>
