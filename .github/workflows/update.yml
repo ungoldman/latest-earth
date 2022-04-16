@@ -1,4 +1,4 @@
-name: fetch
+name: Update Satellite Images
 
 on:
   # allows manually running a workflow
@@ -8,7 +8,7 @@ on:
     - cron: '0 0,4,8,12,16,20 * * *' # https://crontab.guru/#0_0,6,12,18_*_*_*
 
 jobs:
-  fetch:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,13 +20,22 @@ jobs:
         run: |
           sudo apt-get install -y imagemagick ghostscript graphicsmagick
 
+          # GOES
           curl -o images/goes-16-latest.jpg https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/latest.jpg
           curl -o images/goes-17-latest.jpg https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/latest.jpg
 
+          # Meteosat
+          curl -o images/meteosat-8-latest.jpg https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg
+          curl -o images/meteosat-10-latest.jpg https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg
+
+          # Himawari 8
           npx -y @ungoldman/himawari -z 2 -o images/himawari-8-latest.jpg
 
+          # scale
           mogrify -resize 1920x1080 images/*.jpg
-          mogrify -crop +0-2 images/goes-*.jpg # remove noise
+
+           # remove noise
+          mogrify -crop +0-2 images/goes-*.jpg
 
       - name: Update Timestamp
         run: |
