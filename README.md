@@ -21,3 +21,7 @@ Pulling latest images of Earth from geostationary satellites [every hour](https:
 - [x] Meteosat Indian Ocean
 
     <img src="./images/meteosat-8-latest.jpg" width="50%">
+
+## License
+
+Public Domain ([CC0-1.0](https://spdx.org/licenses/CC0-1.0.html))
