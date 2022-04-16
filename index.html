@@ -34,7 +34,7 @@
       flex-grow: 1;
       padding: 3rem 0;
     }
-    .sats img {
+    .sats .img {
       width: 40%;
     }
     .sats .sat {
@@ -70,14 +70,11 @@
       <span>/</span>
       <a href="./">🛰 latest earth</a>
     </div>
-    <div class="top-bar-right">
-      <a class="top-bar-link" title="source code" href="https://github.com/ungoldman/latest-earth">🐈</a>
-    </div>
   </nav>
 
   <div class="sats">
-    <img title="GOES-17" src="./images/goes-17-latest.jpg">
-    <img title="GOES-16" src="./images/goes-16-latest.jpg">
+    <a class="img" href="./images/goes-17-latest.jpg"><img title="GOES-17" src="./images/goes-17-latest.jpg"></a>
+    <a class="img" href="./images/goes-16-latest.jpg"><img title="GOES-16" src="./images/goes-16-latest.jpg"></a>
     <div class="sat">
       <a href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G17">GOES-17</a>
       and
@@ -85,8 +82,8 @@
     </div>
   </div>
   <div class="sats">
-    <img title="Meteosat 10" src="./images/meteosat-10-latest.jpg">
-    <img title="Meteosat 8" src="./images/meteosat-8-latest.jpg">
+    <a class="img" href="./images/meteosat-10-latest.jpg"><img title="Meteosat 10" src="./images/meteosat-10-latest.jpg"></a>
+    <a class="img" href="./images/meteosat-8-latest.jpg"><img title="Meteosat 8" src="./images/meteosat-8-latest.jpg"></a>
     <div class="sat">
       <a href="https://eumetview.eumetsat.int/static-images/latestImages.html">Meteosat 10</a>
       and
@@ -94,13 +91,14 @@
     </div>
   </div>
   <div class="sats">
-    <img title="Himawari 8" src="./images/himawari-8-latest.jpg">
+    <a class="img" href="./images/himawari-8-latest.jpg"><img title="Himawari 8" src="./images/himawari-8-latest.jpg"></a>
     <div class="sat"><a href="https://himawari8.nict.go.jp/">Himawari 8</a></div>
   </div>
 
   <p class="colophon">
     Last updated <date datetime="2022-04-16T19:00:53.778Z">2022-04-16T19:00:53.778Z</date>.
-    Updates every 4 hours.
+    Updates every hour.<br>
+    Source code is available <a href="https://github.com/ungoldman/latest-earth">here</a>.
   </p>
 
   <script src="https://unpkg.com/dayjs@1.11.1/dayjs.min.js"></script>
