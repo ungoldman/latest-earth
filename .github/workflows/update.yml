@@ -49,13 +49,3 @@ jobs:
           git add index.html
           git commit -m "update images"
           git push origin $(git rev-parse --abbrev-ref HEAD)
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          exclude_assets: '.github,scripts,README.md'
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
