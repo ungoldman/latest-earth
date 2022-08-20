@@ -4,8 +4,8 @@ on:
   # allows manually running a workflow
   # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
   workflow_dispatch:
-  schedule:
-    - cron: '0 * * * *' # every hour: https://crontab.guru/#0_*_*_*_*
+  # schedule: # disabled due to recurring imagemagick problem
+  #  - cron: '0 * * * *' # every hour: https://crontab.guru/#0_*_*_*_*
 
 jobs:
   update:
