@@ -1,6 +1,8 @@
 # Latest Earth
 
-Pulling latest images of Earth from geostationary satellites [every hour](https://github.com/ungoldman/satellites/blob/main/.github/workflows/update.yml#L8).
+Experiment in automating hourly satellite imagery retrieval using github actions.
+
+Currently inactive.
 
 - [x] Himawari-8
 
